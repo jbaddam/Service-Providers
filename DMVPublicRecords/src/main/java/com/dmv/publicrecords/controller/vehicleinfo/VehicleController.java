@@ -19,14 +19,6 @@ public class VehicleController {
 	@Autowired
 	VehicleInfoService vehicleSrv;
 
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	@RequestMapping(value = "/getallvehicles/{address}")
-	public List<Vehicle> getAllVehicles(@PathVariable String address) {
-
-		return vehicleSrv.getAllVehicles(address);
-	}
-	
 	@RequestMapping(value = "/getvehicleslist/{address}")
 	@GET	
 	@Produces(MediaType.APPLICATION_JSON)

@@ -15,21 +15,21 @@ import com.dmv.publicrecords.model.Vehicle;
 public class VehicleDAO {
 
 	@Autowired
-	SessionFactory mySessionFactory;
+	SessionFactory sessionFactory;
 
+	@SuppressWarnings("unchecked")
 	public List<Vehicle> getAllVehicles(Address address) {
 		if (address != null) {
-			Session session = mySessionFactory.openSession();
-			SQLQuery sQuery = session.createSQLQuery("select a_id from dmv.vehicle_address where (line1 = '"
+			Session session = sessionFactory.openSession();
+			SQLQuery Query = session.createSQLQuery("select a_id from dmv.vehicle_address where (line1 = '"
 					+ address.getAddressLine1() + "' && line2='" + address.getAddressLine2() + "' && city='"
 					+ address.getCity() + "' && state='" + address.getState() + "' && zip='" + address.getZip() + "')");
-
-			List<Integer> addrIdList = sQuery.list();
-			int addrId = addrIdList.get(0);
-			if (addrId != 0) {
+			
+			String addrId =  Query.list().get(0).toString();
+			if (addrId != null) {
 				Criteria criteria = session.createCriteria(Vehicle.class, "vehicle");
 				criteria.createAlias("vehicle.vechicleAddress", "vAddr");
-				criteria.add(Restrictions.eq("vAddr.addressId", Integer.toString(addrId)));
+				criteria.add(Restrictions.eq("vAddr.addressId", addrId));
 				return criteria.list();
 			} else
 				return null;

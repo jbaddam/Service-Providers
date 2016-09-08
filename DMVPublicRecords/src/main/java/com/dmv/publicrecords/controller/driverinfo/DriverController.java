@@ -22,10 +22,10 @@ public class DriverController {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@RequestMapping(value = "/getdriver/{license_numbers}")
-	public List<Driver> getDriverInfo(@PathVariable String license_numbers) {
+	@RequestMapping(value = "/getdriverhistory/{licenseNumbers}")
+	public List<Driver> getDriverInfo(@PathVariable String licenseNumbers) {
 
-		return driverSrv.getDriversInfo(license_numbers);
+		return driverSrv.getDriversInfo(licenseNumbers);
 	}
 
 }

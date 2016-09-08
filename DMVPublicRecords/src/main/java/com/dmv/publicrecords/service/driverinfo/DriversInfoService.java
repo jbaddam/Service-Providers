@@ -18,7 +18,7 @@ public class DriversInfoService {
 			String[] licenseNumberArray = licenseNumbers.split(":");
 			List<Driver> listOfDrivers = new ArrayList<Driver>();
 			for (String licenceNumber : licenseNumberArray) {
-				listOfDrivers.add(driverDao.getDriverInfo(licenceNumber.trim()));
+				listOfDrivers.add(driverDao.getDriversInfo(licenceNumber.trim()));
 			}
 			return listOfDrivers;
 		} else

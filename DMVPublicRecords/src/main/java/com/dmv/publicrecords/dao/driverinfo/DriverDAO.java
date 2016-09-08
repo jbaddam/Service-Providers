@@ -1,16 +1,12 @@
 package com.dmv.publicrecords.dao.driverinfo;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.persistence.Persistence;
 
 import com.dmv.publicrecords.model.Driver;
 
 public class DriverDAO {
 
-	@Autowired
-	SessionFactory mySessionFactory;
-
-	public Driver getDriverInfo(String licenseNumber) {
-		return (Driver) mySessionFactory.openSession().get(Driver.class, licenseNumber);
+	public Driver getDriversInfo(String licenseNumber) {
+		return (Driver) Persistence.createEntityManagerFactory("ServiceProvider").createEntityManager().find(Driver.class,licenseNumber);
 	}
 }
