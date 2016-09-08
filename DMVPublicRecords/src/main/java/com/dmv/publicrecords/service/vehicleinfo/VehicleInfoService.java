@@ -1,7 +1,11 @@
 package com.dmv.publicrecords.service.vehicleinfo;
 
+import java.io.IOException;
 import java.util.List;
 
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.dmv.publicrecords.dao.vehicleinfo.VehicleDAO;
@@ -23,6 +27,22 @@ public class VehicleInfoService {
 		vehiclAddress.setState(addressArray[3].trim());
 		vehiclAddress.setZip(addressArray[4].trim());
 
+		return vehicleDao.getAllVehicles(vehiclAddress);
+	}
+	
+	public List<Vehicle> getVehiclesList(String address) {
+
+		ObjectMapper mapper = new ObjectMapper();
+		Address vehiclAddress=null;
+		try {
+			vehiclAddress = mapper.readValue(address, Address.class);
+		} catch (JsonParseException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return vehicleDao.getAllVehicles(vehiclAddress);
 	}
 }
