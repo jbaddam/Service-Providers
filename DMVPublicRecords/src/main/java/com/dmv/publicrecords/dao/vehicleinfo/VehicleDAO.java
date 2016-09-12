@@ -19,6 +19,9 @@ public class VehicleDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<Vehicle> getAllVehicles(Address address) {
+		
+		
+		
 		if (address != null) {
 			Session session = sessionFactory.openSession();
 			SQLQuery Query = session.createSQLQuery("select a_id from dmv.vehicle_address where (line1 = '"
@@ -36,4 +39,23 @@ public class VehicleDAO {
 		} else
 			return null;
 	}
+		/*EntityManager em =(EntityManager) Persistence.createEntityManagerFactory("ServiceProvider");
+		if (address != null) {
+			//Session session = sessionFactory.openSession();
+			Query query = em.createNativeQuery("select a_id from dmv.vehicle_address where (line1 = '"
+					+ address.getAddressLine1() + "' && line2='" + address.getAddressLine2() + "' && city='"
+					+ address.getCity() + "' && state='" + address.getState() + "' && zip='" + address.getZip() + "')");
+			
+			String addrId =  query.getResultList().get(0).toString();
+			if (addrId != null) {
+				CriteriaBuilder cb = em.getCriteriaBuilder();
+				Criteria criteria = session.createCriteria(Vehicle.class, "vehicle");
+				criteria.createAlias("vehicle.vechicleAddress", "vAddr");
+				criteria.add(Restrictions.eq("vAddr.addressId", addrId));
+				return criteria.list();
+			} else
+				return null;
+		} else
+			return null;
+	}*/
 }

@@ -26,4 +26,6 @@ public class VehicleInfoService {
 		} 
 		return vehicleDao.getAllVehicles(vehiclAddress);
 	}
+	
+	
 }
