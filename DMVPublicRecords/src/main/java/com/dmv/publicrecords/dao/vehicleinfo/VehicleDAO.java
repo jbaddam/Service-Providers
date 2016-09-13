@@ -22,12 +22,20 @@ public class VehicleDAO {
 		
 		
 		
+		SQLQuery Query = null;
 		if (address != null) {
 			Session session = sessionFactory.openSession();
-			SQLQuery Query = session.createSQLQuery("select a_id from dmv.vehicle_address where (line1 = '"
-					+ address.getAddressLine1() + "' && line2='" + address.getAddressLine2() + "' && city='"
-					+ address.getCity() + "' && state='" + address.getState() + "' && zip='" + address.getZip() + "')");
-			
+			if("".equals(address.getAddressLine2())){
+				Query = session.createSQLQuery("select a_id from dmv.vehicle_address where (line1 = '"
+						+ address.getAddressLine1() + "' && line2 is null && city='"
+						+ address.getCity() + "' && state='" + address.getState() + "' && zip='" + address.getZip() + "')");
+			}
+			else{
+				Query = session.createSQLQuery("select a_id from dmv.vehicle_address where (line1 = '"
+						+ address.getAddressLine1() + "' && line2='" + address.getAddressLine2() + "' && city='"
+						+ address.getCity() + "' && state='" + address.getState() + "' && zip='" + address.getZip() + "')");
+			}
+				
 			String addrId =  Query.list().get(0).toString();
 			if (addrId != null) {
 				Criteria criteria = session.createCriteria(Vehicle.class, "vehicle");
@@ -39,23 +47,5 @@ public class VehicleDAO {
 		} else
 			return null;
 	}
-		/*EntityManager em =(EntityManager) Persistence.createEntityManagerFactory("ServiceProvider");
-		if (address != null) {
-			//Session session = sessionFactory.openSession();
-			Query query = em.createNativeQuery("select a_id from dmv.vehicle_address where (line1 = '"
-					+ address.getAddressLine1() + "' && line2='" + address.getAddressLine2() + "' && city='"
-					+ address.getCity() + "' && state='" + address.getState() + "' && zip='" + address.getZip() + "')");
-			
-			String addrId =  query.getResultList().get(0).toString();
-			if (addrId != null) {
-				CriteriaBuilder cb = em.getCriteriaBuilder();
-				Criteria criteria = session.createCriteria(Vehicle.class, "vehicle");
-				criteria.createAlias("vehicle.vechicleAddress", "vAddr");
-				criteria.add(Restrictions.eq("vAddr.addressId", addrId));
-				return criteria.list();
-			} else
-				return null;
-		} else
-			return null;
-	}*/
+
 }
