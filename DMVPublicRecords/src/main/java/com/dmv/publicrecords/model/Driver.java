@@ -1,5 +1,7 @@
 package com.dmv.publicrecords.model;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,70 +17,58 @@ public class Driver {
 	@Column(name = "driver_name")
 	private String name;
 	@Column(name = "DOB")
-	private String dob;
+	private Date dob;
 	@Column(name = "exp_date")
-	private String expiryDate;
+	private Date expiryDate;
 	@Column(name = "points")
-	private String points;
+	private int points;
 	@Column(name = "tickets")
-	private String tickets;
+	private int tickets;
 	@Column(name = "issuing_state")
 	private String issuingState;
-
 	public String getLicenceNumber() {
 		return licenceNumber;
 	}
-
 	public void setLicenceNumber(String licenceNumber) {
 		this.licenceNumber = licenceNumber;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public String getDob() {
+	public Date getDob() {
 		return dob;
 	}
-
-	public void setDob(String dob) {
+	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-
-	public String getExpiryDate() {
+	public Date getExpiryDate() {
 		return expiryDate;
 	}
-
-	public void setExpiryDate(String expiryDate) {
+	public void setExpiryDate(Date expiryDate) {
 		this.expiryDate = expiryDate;
 	}
-
-	public String getPoints() {
+	public int getPoints() {
 		return points;
 	}
-
-	public void setPoints(String points) {
+	public void setPoints(int points) {
 		this.points = points;
 	}
-
-	public String getTickets() {
+	public int getTickets() {
 		return tickets;
 	}
-
-	public void setTickets(String tickets) {
+	public void setTickets(int tickets) {
 		this.tickets = tickets;
 	}
-
 	public String getIssuingState() {
 		return issuingState;
 	}
-
 	public void setIssuingState(String issuingState) {
 		this.issuingState = issuingState;
 	}
+
+	
 
 }

@@ -36,8 +36,8 @@ public class VehicleDAO {
 						+ address.getCity() + "' && state='" + address.getState() + "' && zip='" + address.getZip() + "')");
 			}
 				
-			String addrId =  Query.list().get(0).toString();
-			if (addrId != null) {
+			int addrId =  (int) Query.list().get(0);
+			if (addrId != 0) {
 				Criteria criteria = session.createCriteria(Vehicle.class, "vehicle");
 				criteria.createAlias("vehicle.vechicleAddress", "vAddr");
 				criteria.add(Restrictions.eq("vAddr.addressId", addrId));
