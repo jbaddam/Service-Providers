@@ -22,21 +22,21 @@ public class VehicleDAO {
 		
 		
 		
-		SQLQuery Query = null;
+		SQLQuery query = null;
 		if (address != null) {
 			Session session = sessionFactory.openSession();
 			if("".equals(address.getAddressLine2())){
-				Query = session.createSQLQuery("select a_id from dmv.vehicle_address where (line1 = '"
+				query = session.createSQLQuery("select a_id from dmv.vehicle_address where (line1 = '"
 						+ address.getAddressLine1() + "' && line2 is null && city='"
 						+ address.getCity() + "' && state='" + address.getState() + "' && zip='" + address.getZip() + "')");
 			}
 			else{
-				Query = session.createSQLQuery("select a_id from dmv.vehicle_address where (line1 = '"
+				query = session.createSQLQuery("select a_id from dmv.vehicle_address where (line1 = '"
 						+ address.getAddressLine1() + "' && line2='" + address.getAddressLine2() + "' && city='"
 						+ address.getCity() + "' && state='" + address.getState() + "' && zip='" + address.getZip() + "')");
 			}
 				
-			int addrId =  (int) Query.list().get(0);
+			int addrId =  (int) query.list().get(0);
 			if (addrId != 0) {
 				Criteria criteria = session.createCriteria(Vehicle.class, "vehicle");
 				criteria.createAlias("vehicle.vechicleAddress", "vAddr");
