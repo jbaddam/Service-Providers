@@ -11,55 +11,35 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-
-
 import com.autocheck.claims.model.VehicleClaimsInfo;
-
 
 public class VehicleClaimsDao {
 
-	
 	private static final Logger logger = LoggerFactory.getLogger(VehicleClaimsDao.class);
+
 	@SuppressWarnings("unchecked")
-	//method to get  vehicle claims history
+	// method to get vehicle claims history
 	public List<VehicleClaimsInfo> getVehicleClaimHistory(String vin) {
 		// TODO Auto-generated method stub
-		
-		//Persistence class method to create Entity Manager Factory
-		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ServiceProvider");
-        
-	
-		//Query to get List of vehicele claims 	
-		List<VehicleClaimsInfo> claimhistory = emfactory.createEntityManager().createQuery("Select e from VehicleClaimsInfo e where e.vin='"+vin+"'").getResultList();
-				
-		
-		return  claimhistory;
-	}
-	
-	
-/*public static void main(String args[])
-{
-	VehicleClaimsDao vehicledemo = new VehicleClaimsDao();
-	
-	
-	List<VehicleClaimsInfo> claimdetails=vehicledemo.getVehicleClaimHistory("111");
-	
-	int count = claimdetails.size();
-	
-	System.out.println(count);
-	
-	int sum=0;
-	for(int i=0;i<count;i++)
-	{
-		
-		sum =sum+claimdetails.get(i).getClaimAmount();
-		
-	}
-	
-	System.out.println(sum);
-}*/
-	
-	
 
-	
+		// Persistence class method to create Entity Manager Factory
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ServiceProvider");
+
+		// Query to get List of vehicele claims
+		List<VehicleClaimsInfo> claimhistory = emfactory.createEntityManager()
+				.createQuery("Select e from VehicleClaimsInfo e where e.vin='" + vin + "'").getResultList();
+
+		if (claimhistory.isEmpty()) {
+
+			System.out.println("Vehicle indentification Number is not available");
+
+			return null;
+		}
+
+		else {
+			return claimhistory;
+		}
+
+	}
+
 }
