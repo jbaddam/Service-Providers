@@ -18,6 +18,7 @@ import com.autocheck.claims.model.VehicleClaimsInfo;
 
 public class VehicleClaimsDao {
 
+	
 	private static final Logger logger = LoggerFactory.getLogger(VehicleClaimsDao.class);
 	@SuppressWarnings("unchecked")
 	//method to get  vehicle claims history
