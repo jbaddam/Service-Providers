@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author Jagan Reddy
+ * Address Entity Class
+ */
 @Entity
 @Table(name = "vehicle_address")
 public class Address implements Serializable {
@@ -66,7 +70,5 @@ public class Address implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
-	
 
 }

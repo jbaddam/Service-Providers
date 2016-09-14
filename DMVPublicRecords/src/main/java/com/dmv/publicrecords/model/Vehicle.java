@@ -8,6 +8,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * @author Jagan Reddy
+ * Vehicle Entity Class
+ */
 @Entity
 @Table(name = "vehicle")
 public class Vehicle {

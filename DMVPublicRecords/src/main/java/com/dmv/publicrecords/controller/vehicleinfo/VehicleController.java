@@ -16,11 +16,23 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dmv.publicrecords.model.Vehicle;
 import com.dmv.publicrecords.service.vehicleinfo.VehicleInfoService;
 
+/**
+ * @author Jagan Reddy
+ * This class has Functionality to get the List of Vehicles 
+ * based on the given address
+ */
 @RestController
 public class VehicleController {
+	
 	@Autowired
 	VehicleInfoService vehicleSrv;
 	
+	/**
+	 * @param address
+	 * @return
+	 * This method accepts JSON String of Address as input
+	 * and returns the List of Vehicles register to that address 
+	 */
 	@RequestMapping(value = "/getvehicleslist")
 	@GET	
 	@Produces(MediaType.APPLICATION_JSON)

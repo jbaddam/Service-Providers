@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author Jagan Reddy
+ * Driver Entity Class
+ */
 @Entity
 @Table(name = "driver_info")
 public class Driver {
@@ -68,7 +72,5 @@ public class Driver {
 	public void setIssuingState(String issuingState) {
 		this.issuingState = issuingState;
 	}
-
-	
 
 }

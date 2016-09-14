@@ -16,12 +16,23 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dmv.publicrecords.model.Driver;
 import com.dmv.publicrecords.service.driverinfo.DriversInfoService;
 
+/**
+ * @author Jagan Reddy
+ * This class has Functionality to get the Driver history 
+ * based on the given license numbers
+ */
 @RestController
 public class DriverController {
 
 	@Autowired
 	DriversInfoService driverSrv;
 
+	/**
+	 * @param licenseNumbers
+	 * @return
+	 * This method accepts String of license number as input
+	 * and returns the List of history of drivers 
+	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@RequestMapping(value = "/getdriverhistory")
