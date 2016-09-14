@@ -1,10 +1,10 @@
 package com.creditbureau.creditscore.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
-import com.creditbureau.creditscore.model.CreditScore;
 
 /**
  * In this class, we will get the creditScore from the database by SSN
@@ -27,10 +27,16 @@ public class CreditScoreDAO {
 
 		EntityManager entitymanager = emfactory.createEntityManager();
 
-		CreditScore creditScore = entitymanager.find(CreditScore.class, ssn);
+		@SuppressWarnings("unchecked")
+		List<Integer> creditScoreList = entitymanager.createNativeQuery("select creditScore from credit_score_info where ssn='" + ssn + "'").getResultList();
 
-		return creditScore.getCreditScore();
+		if (creditScoreList.isEmpty()){
+			System.out.println("Invalid SSN");
+			return 0;
+		}
+			
+		else
+			return creditScoreList.get(0);
 
 	}
-
 }

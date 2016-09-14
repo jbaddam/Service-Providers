@@ -16,26 +16,10 @@ public class CreditScoreServiceImpl implements CreditScoreService {
 
 	public int getCreditScoreBySSN(String ssn) {
 
-		CreditScoreDAO dao = new CreditScoreDAO();
-		int creditScore = 0;
-
-		try {
-
-			creditScore = dao.getCreditScore(ssn);
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		}
-
-		return creditScore;
-
-	}
-	
-	public static void main(String[] args) {
-		
-		System.out.println(new CreditScoreServiceImpl().getCreditScoreBySSN("123456789"));
-		
+		if (ssn != null)
+			return new CreditScoreDAO().getCreditScore(ssn);
+		else
+			return 0;
 	}
 
 }
