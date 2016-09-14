@@ -8,39 +8,39 @@
 	<name>DMVPublicRecords</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-<dependency>
-	<groupId>org.mockito</groupId>
-	<artifactId>mockito-core</artifactId>
-	<version>1.10.19</version>
-</dependency>
-
-	<dependency>
-		<groupId>junit</groupId>
-		<artifactId>junit</artifactId>
-		<version>4.7</version>
-		<scope>test</scope>
-	</dependency>
-
 		
-	<dependency>
-        <groupId>org.hibernate.javax.persistence</groupId>
-        <artifactId>hibernate-jpa-2.0-api</artifactId>
-        <version>1.0.1.Final</version>
-    </dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>1.10.19</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.7</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.1.Final</version>
+		</dependency>
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -75,14 +75,14 @@
 			<version>2.4.1</version>
 		</dependency>
 
-		<!-- Hibernate -->
+		
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
 
-		<!-- Spring ORM -->
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
@@ -100,7 +100,7 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.6.3</version>
 		</dependency>
-		
+
 
 		<dependency>
 			<groupId>com.googlecode.json-simple</groupId>
@@ -108,49 +108,49 @@
 			<version>1.1</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.json/json -->
+	
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>20090211</version>
 		</dependency>
-		
+
 		<dependency>
-			    <groupId>dom4j</groupId>
-			    <artifactId>dom4j</artifactId>
-			    <version>1.6.1</version>
-			    <scope>provided</scope>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
+			<scope>provided</scope>
 		</dependency>
-
-
-		<!-- Apache Commons DBCP -->
+		
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 		</dependency>
+		
 	</dependencies>
+	
 	<build>
+	
 		<finalName>DMVPublicRecords</finalName>
-
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source>${jdk.version}</source>
-					<target>${jdk.version}</target>
-				</configuration>
-			</plugin>
-		</plugins>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>${jdk.version}</source>
+						<target>${jdk.version}</target>
+					</configuration>
+				</plugin>
+			</plugins>
 
 	</build>
+	
 	<properties>
 		<spring.version>4.2.1.RELEASE</spring.version>
 		<jdk.version>1.8</jdk.version>
 		<hibernate.version>4.3.5.Final</hibernate.version>
 	</properties>
-
 
 </project>
