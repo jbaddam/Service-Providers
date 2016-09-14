@@ -4,6 +4,7 @@ package com.dmv.publicrecords;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,11 +26,11 @@ public class DriversInfoServiceTest {
 		Driver driver = new Driver();
 		driver.setName("jagan reddy");
 		driver.setLicenceNumber("1234");
-		driver.setDob("27/09/1990");		
-		driver.setExpiryDate("09/27/2018");
+		driver.setDob(new Date(2016,9,9));		
+		driver.setExpiryDate(new Date(2016,9,9));
 		driver.setIssuingState("CA");
-		driver.setPoints("1");
-		driver.setTickets("1");		
+		driver.setPoints(1);
+		driver.setTickets(1);		
 		driverList.add(driver);		
 		
 		
