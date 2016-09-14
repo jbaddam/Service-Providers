@@ -3,11 +3,10 @@ package com.discover.ccservices.verifycard.controller;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.discover.ccservices.verifycard.webservice.DiscoverCCWebService;
 
@@ -16,7 +15,8 @@ import com.discover.ccservices.verifycard.webservice.DiscoverCCWebService;
 /**
  * Servlet implementation class CitiBankRegistration
  */
-@Controller
+@RestController
+@RequestMapping("creditcard")
 public class CreditCardController {
 	
 	 @Autowired
@@ -25,9 +25,8 @@ public class CreditCardController {
 	 boolean result;
 
 	/* Accept credit card info in the form of a JSON string and give the response in boolean format. */
-	@RequestMapping(value = "/BankofAmerica", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON)
-	
-	public @ResponseBody boolean verifyCreditCardDetails(@RequestBody String cerditCardfromUser) {
+	@RequestMapping(value = "/verify", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
+	public boolean verifyCreditCardDetails(@RequestBody String cerditCardfromUser) {
 		
 		try {
 			result = ccServices.verifyCreditCardDetails(cerditCardfromUser);
