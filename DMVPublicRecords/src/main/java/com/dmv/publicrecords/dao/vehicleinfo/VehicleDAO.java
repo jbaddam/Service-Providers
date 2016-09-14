@@ -28,14 +28,15 @@ public class VehicleDAO {
 	 * This method accepts  Address object as input
 	 * fetches and returns the List of Vehicles register to that address from database 	 
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "finally" })
 	public List<Vehicle> getAllVehicles(Address address) {
 			
 		SQLQuery query = null;
+		int addrId =0;
 		if (address != null) {
 			Session session = sessionFactory.openSession();
 			
-			//if addressLine2 come as NULL
+			//if addressLine2 came as NULL
 			if("".equals(address.getAddressLine2())){
 				query = session.createSQLQuery("select a_id from dmv.vehicle_address where (line1 = '"
 						+ address.getAddressLine1() + "' && line2 is null && city='"
@@ -43,18 +44,26 @@ public class VehicleDAO {
 			}
 			else{
 				query = session.createSQLQuery("select a_id from dmv.vehicle_address where (line1 = '"
-						+ address.getAddressLine1() + "' && line2='" + address.getAddressLine2() + "' && city='"
-						+ address.getCity() + "' && state='" + address.getState() + "' && zip='" + address.getZip() + "')");
+						+ address.getAddressLine1().trim() + "' && line2='" + address.getAddressLine2().trim() + "' && city='"
+						+ address.getCity().trim() + "' && state='" + address.getState().trim() + "' && zip='" + address.getZip() + "')");
 			}
-				
-			int addrId =  (int) query.list().get(0);
-			if (addrId != 0) {
-				Criteria criteria = session.createCriteria(Vehicle.class, "vehicle");
-				criteria.createAlias("vehicle.vechicleAddress", "vAddr");
-				criteria.add(Restrictions.eq("vAddr.addressId", addrId));
-				return criteria.list();
-			} else
-				return null;
+			
+			try{
+				 addrId =  (int) query.list().get(0);
+			}catch(java.lang.IndexOutOfBoundsException e){
+				System.out.println("Address Not Matched With Our Records");
+				return null;			
+			}
+			finally{
+				if (addrId != 0) {
+					Criteria criteria = session.createCriteria(Vehicle.class, "vehicle");
+					criteria.createAlias("vehicle.vechicleAddress", "vAddr");
+					criteria.add(Restrictions.eq("vAddr.addressId", addrId));
+					return criteria.list();
+				} else
+					return null;
+			}
+			
 		} else
 			return null;
 	}

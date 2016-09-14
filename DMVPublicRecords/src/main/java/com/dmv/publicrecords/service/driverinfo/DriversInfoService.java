@@ -28,7 +28,7 @@ public class DriversInfoService {
 
 		if (licenseNumbers != null) {
 			
-			//splitting the license numbers using delimiter :
+			//splitting the license numbers using delimiter ':'
 			String[] licenseNumberArray = licenseNumbers.split(":");
 			List<Driver> listOfDrivers = new ArrayList<Driver>();
 			

@@ -37,8 +37,8 @@ public class DriverController {
 	@Produces(MediaType.APPLICATION_JSON)
 	@RequestMapping(value = "/getdriverhistory")
 	public ResponseEntity<List<Driver>> getDriverInfo(@RequestBody String licenseNumbers) {
-
-		return new ResponseEntity<List<Driver>>(driverSrv.getDriversInfo(licenseNumbers), HttpStatus.OK);
+		
+			return new ResponseEntity<List<Driver>>(driverSrv.getDriversInfo(licenseNumbers), HttpStatus.OK);
 	}
 
 }

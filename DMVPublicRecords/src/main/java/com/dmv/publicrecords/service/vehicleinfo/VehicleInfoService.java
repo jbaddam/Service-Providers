@@ -33,7 +33,8 @@ public class VehicleInfoService {
 		try {
 			vehiclAddress = mapper.readValue(address, Address.class);
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("Address is not in Correct Format");
+			return null;
 		}
 
 		return vehicleDao.getAllVehicles(vehiclAddress);
