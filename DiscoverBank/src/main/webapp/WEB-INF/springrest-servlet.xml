@@ -9,7 +9,7 @@
  <context:annotation-config />
  <import resource="contextservlet.xml"/>
  <import resource="applicationcontext.xml"/>
-<context:component-scan base-package="com.bofa.ccservices.verifycard.controller" />
+<context:component-scan base-package="com.discover.ccservices.verifycard.controller" />
 
 </beans>
 

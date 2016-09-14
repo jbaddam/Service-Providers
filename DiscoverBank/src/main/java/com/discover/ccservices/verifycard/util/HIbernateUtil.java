@@ -1,4 +1,4 @@
-package com.bofa.ccservices.verifycard.util;
+package com.discover.ccservices.verifycard.util;
 
 
 import org.hibernate.Session;

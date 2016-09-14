@@ -8,8 +8,8 @@
 		 http://www.springframework.org/schema/tx 
     http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-	<bean id="creditCardDao" class="com.bofa.ccservices.verifycard.dao.BofACreditCardDAO"/>
-	<bean id="ccServices" class="com.bofa.ccservices.verifycard.webservice.BofaCCWebService"/>
+	<bean id="creditCardDao" class="com.discover.ccservices.verifycard.dao.DiscoverCreditCardDAO"/>
+	<bean id="ccServices" class="com.discover.ccservices.verifycard.webservice.DiscoverCCWebService"/>
 	
 		
 </beans>

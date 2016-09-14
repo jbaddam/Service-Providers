@@ -1,11 +1,11 @@
-package com.bofa.ccservices.verifycard.webservice;
+package com.discover.ccservices.verifycard.webservice;
 
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.bofa.ccservices.verifycard.dao.BofACreditCardDAO;
-import com.bofa.ccservices.verifycard.model.CreditCard;
+import com.discover.ccservices.verifycard.model.CreditCard;
+import com.discover.ccservices.verifycard.dao.DiscoverCreditCardDAO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
@@ -13,10 +13,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  *	This class passes the data to the DAO layer.
  */
 
-public class BofaCCWebService {
+public class DiscoverCCWebService {
 	
 	@Autowired
-	BofACreditCardDAO creditCardDao;
+	DiscoverCreditCardDAO creditCardDao;
 	
 	
 	/**

@@ -1,4 +1,4 @@
-package com.bofa.ccservices.verifycard.controller;
+package com.discover.ccservices.verifycard.controller;
 
 import javax.ws.rs.core.MediaType;
 
@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bofa.ccservices.verifycard.model.CreditCard;
-import com.bofa.ccservices.verifycard.webservice.BofaCCWebService;
+import com.discover.ccservices.verifycard.webservice.DiscoverCCWebService;
+
+
 
 /**
  * Servlet implementation class CitiBankRegistration
@@ -19,7 +20,7 @@ import com.bofa.ccservices.verifycard.webservice.BofaCCWebService;
 public class CreditCardController {
 	
 	 @Autowired
-	 BofaCCWebService ccServices;
+	 DiscoverCCWebService ccServices;
 	 
 	 boolean result;
 

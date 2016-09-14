@@ -25,10 +25,10 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>
-					com.bofa.ccservices.verifycard.model.BillingAddress
+					com.discover.ccservices.verifycard.model.BillingAddress
 				</value>
 				<value>
-					com.bofa.ccservices.verifycard.model.CreditCard
+					com.discover.ccservices.verifycard.model.CreditCard
 				</value>
 				
 			</list>

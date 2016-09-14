@@ -1,4 +1,4 @@
-package com.bofa.ccservices.verifycard.model;
+package com.discover.ccservices.verifycard.model;
 
 import java.io.Serializable;
 
@@ -77,7 +77,7 @@ public class BillingAddress implements Serializable {
 		return zip;
 	}
 
-	public void setZip(intid zip) {
+	public void setZip(int zip) {
 		this.zip = zip;
 	}
 }

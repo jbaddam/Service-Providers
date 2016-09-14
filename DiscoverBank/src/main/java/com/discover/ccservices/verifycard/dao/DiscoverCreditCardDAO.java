@@ -1,4 +1,4 @@
-package com.bofa.ccservices.verifycard.dao;
+package com.discover.ccservices.verifycard.dao;
 
 
 import org.hibernate.Query;
@@ -6,7 +6,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.bofa.ccservices.verifycard.model.CreditCard;
+import com.discover.ccservices.verifycard.model.CreditCard;
+
+
 
 
 /**
@@ -14,7 +16,7 @@ import com.bofa.ccservices.verifycard.model.CreditCard;
  * This class provides methods like getInfo that creates the connection to Database
  * and retrieves the data through the query written in prepared statement
  */
-public class BofACreditCardDAO {
+public class DiscoverCreditCardDAO {
 
 	
 	/**
@@ -50,7 +52,7 @@ public class BofACreditCardDAO {
 		    session.getTransaction().commit();
 		    session.close();
 		    
-		    if (creditCardFromDB.getCreditCard() != null){
+		    if (creditCardFromDB.getCreditCard() != 0){
 		    	return true;
 		    }
 		    

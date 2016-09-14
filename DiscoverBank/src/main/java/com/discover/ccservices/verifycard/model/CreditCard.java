@@ -1,4 +1,4 @@
-package com.bofa.ccservices.verifycard.model;
+package com.discover.ccservices.verifycard.model;
 
 import java.sql.Date;
 
@@ -62,9 +62,6 @@ public class CreditCard {
 
 	public void setCvv(int cvv) {
 		this.cvv = cvv;
-	}
-
-
 	}
 
 	public BillingAddress getBillingAddress() {
