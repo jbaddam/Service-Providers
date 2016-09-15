@@ -13,7 +13,7 @@
 
 	<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/bofa" />
+		<property name="url" value="jdbc:mysql://localhost:3306/discover" />
 		<property name="username" value="root" />
 		<property name="password" value="986658291231Lohi" />
 	</bean>
