@@ -9,34 +9,35 @@ import com.discover.ccservices.verifycard.dao.DiscoverCreditCardDAO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * @author Lohith Thota
- *	This class passes the data to the DAO layer.
+ * @author Lohith Thota This class passes the data to the DAO layer.
  */
 
 public class DiscoverCCWebService {
-	
+
 	@Autowired
 	DiscoverCreditCardDAO creditCardDao;
-	
-	
+
 	/**
-	 * This method receives the data from the 
-	 * controller layer to DAO layer through the service layer
+	 * This method receives the data from the controller layer to DAO layer
+	 * through the service layer
+	 * 
 	 * @param creditCardFromCustomer
 	 * @return cdb
 	 */
-	public boolean verifyCreditCardDetails(String creditCardFromCustomer){
-		
+	public boolean verifyCreditCardDetails(String creditCardFromCustomer, double quoteAmount) {
+
 		ObjectMapper mapper = new ObjectMapper();
-		CreditCard card=null;
+		CreditCard card = null;
 		try {
 			card = mapper.readValue(creditCardFromCustomer, CreditCard.class);
-		} catch (IOException e) {
-			
+		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("invalid Creditcard Details");
+			return false;
+
 		}
-		boolean verificationResult = creditCardDao.verifyCreditCardDetails(card);
-		return verificationResult;
+
+		return creditCardDao.verifyCreditCardDetails(card, quoteAmount);
 	}
 
 }

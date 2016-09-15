@@ -19,18 +19,23 @@ public class BillingAddress implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="ba_id", unique = true, nullable = false)
+	@Column(name = "ba_id", unique = true, nullable = false)
 	private int id;
+	@Column(name = "line1")
 	private String line1;
+	@Column(name = "line2")
 	private String line2;
+	@Column(name = "city")
 	private String city;
+	@Column(name = "state")
 	private String state;
+	@Column(name = "zip")
 	private int zip;
 
 	@Override
 	public String toString() {
-		return "BillingAddress [ba_id=" + id + ", line1=" + line1 + ", line2=" + line2 + ", city=" + city
-				+ ", state=" + state + ", zip=" + zip + "]";
+		return "BillingAddress [ba_id=" + id + ", line1=" + line1 + ", line2=" + line2 + ", city=" + city + ", state="
+				+ state + ", zip=" + zip + "]";
 	}
 
 	public int getBa_id() {
