@@ -18,8 +18,11 @@ public class CreditScoreServiceImpl implements CreditScoreService {
 
 		if (ssn != null)
 			return new CreditScoreDAO().getCreditScore(ssn);
-		else
+		else{
+			System.out.println("Invalid SSN. Please try with valid SSN");
 			return 0;
+		}
+			
 	}
 
 }
