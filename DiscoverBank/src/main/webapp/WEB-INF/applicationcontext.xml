@@ -10,6 +10,5 @@
 
 	<bean id="creditCardDao" class="com.discover.ccservices.verifycard.dao.DiscoverCreditCardDAO"/>
 	<bean id="ccServices" class="com.discover.ccservices.verifycard.webservice.DiscoverCCWebService"/>
-	
 		
 </beans>

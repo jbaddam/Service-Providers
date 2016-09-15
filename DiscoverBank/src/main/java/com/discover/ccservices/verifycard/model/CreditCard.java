@@ -10,8 +10,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
- * @author Lohith Thota This is an entity class which provides setters and
- *         getters for the credit card details
+ * @author Lohith Thota 
+ * This is an entity class which provides setters and
+ * getters for the credit card details
  */
 @Entity
 @Table(name = "credit_card")

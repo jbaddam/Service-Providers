@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.discover.ccservices.verifycard.webservice.DiscoverCCWebService;
 
 /**
- * Servlet implementation class CitiBankRegistration
+ * @author Lohith Thota
+ * This is the controller class that is exposed as a rest webservice
+ * This service returns a boolean response in the form of a JSON String.
  */
 @RestController
 public class CreditCardController {
@@ -24,17 +26,17 @@ public class CreditCardController {
 	boolean result;
 
 	/*
-	 * Accept credit card info in the form of a JSON string and give the
-	 * response in boolean format.
+	 * Accept credit card info in the form of a JSON string and quote amount as a path Variable
 	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@RequestMapping(value = "/verify/{quoteAmount}")
-	public boolean verifyCreditCardDetails(@RequestBody String cerditCardfromUser, @PathVariable("quoteAmount") final double quoteAmount) {
+	public boolean processPayment(@RequestBody String cerditCardfromUser, @PathVariable("quoteAmount") final double quoteAmount) {
 
 		if (cerditCardfromUser != null) {
-
-			return ccServices.verifyCreditCardDetails(cerditCardfromUser, quoteAmount);
+			
+			return ccServices.processPayment(cerditCardfromUser, quoteAmount);
+		
 		} else
 			return false;
 

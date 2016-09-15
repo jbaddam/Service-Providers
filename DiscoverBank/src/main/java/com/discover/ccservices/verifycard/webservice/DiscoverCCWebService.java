@@ -1,15 +1,14 @@
 package com.discover.ccservices.verifycard.webservice;
 
-import java.io.IOException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.discover.ccservices.verifycard.model.CreditCard;
 import com.discover.ccservices.verifycard.dao.DiscoverCreditCardDAO;
+import com.discover.ccservices.verifycard.model.CreditCard;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * @author Lohith Thota This class passes the data to the DAO layer.
+ * @author Lohith Thota 
+ * This class passes the data to the DAO layer.
  */
 
 public class DiscoverCCWebService {
@@ -21,23 +20,27 @@ public class DiscoverCCWebService {
 	 * This method receives the data from the controller layer to DAO layer
 	 * through the service layer
 	 * 
-	 * @param creditCardFromCustomer
-	 * @return cdb
+	 * @param creditCardFromCustomer, quoteAmount
+	 * @return boolean response
 	 */
-	public boolean verifyCreditCardDetails(String creditCardFromCustomer, double quoteAmount) {
+	public boolean processPayment(String creditCardFromCustomer, double quoteAmount) {
 
 		ObjectMapper mapper = new ObjectMapper();
 		CreditCard card = null;
+		
 		try {
+			
 			card = mapper.readValue(creditCardFromCustomer, CreditCard.class);
+		
 		} catch (Exception e) {
+			
 			e.printStackTrace();
-			System.out.println("invalid Creditcard Details");
+			//System.out.println("invalid Creditcard Details");
 			return false;
 
 		}
 
-		return creditCardDao.verifyCreditCardDetails(card, quoteAmount);
+		return creditCardDao.processPayment(card, quoteAmount);
 	}
 
 }

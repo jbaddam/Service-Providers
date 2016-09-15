@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author Lohith Thota
+ * This is an entity class for billing address.
+ */
 @Entity
 @Table(name = "billing_address")
 public class BillingAddress implements Serializable {
@@ -17,18 +21,24 @@ public class BillingAddress implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ba_id", unique = true, nullable = false)
 	private int id;
+	
 	@Column(name = "line1")
 	private String line1;
+	
 	@Column(name = "line2")
 	private String line2;
+	
 	@Column(name = "city")
 	private String city;
+	
 	@Column(name = "state")
 	private String state;
+	
 	@Column(name = "zip")
 	private int zip;
 
