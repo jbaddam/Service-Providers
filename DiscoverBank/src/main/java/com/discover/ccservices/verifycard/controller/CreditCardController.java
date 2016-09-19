@@ -1,6 +1,6 @@
 package com.discover.ccservices.verifycard.controller;
 
-import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -28,7 +28,7 @@ public class CreditCardController {
 	/*
 	 * Accept credit card info in the form of a JSON string and quote amount as a path Variable
 	 */
-	@GET
+	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@RequestMapping(value = "/processpayment/{quoteAmount}")
 	public boolean processPayment(@RequestBody String cerditCardfromUser, @PathVariable("quoteAmount") final double quoteAmount) {
