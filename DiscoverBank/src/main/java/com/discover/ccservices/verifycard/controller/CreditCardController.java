@@ -30,7 +30,7 @@ public class CreditCardController {
 	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@RequestMapping(value = "/verify/{quoteAmount}")
+	@RequestMapping(value = "/processpayment/{quoteAmount}")
 	public boolean processPayment(@RequestBody String cerditCardfromUser, @PathVariable("quoteAmount") final double quoteAmount) {
 
 		if (cerditCardfromUser != null) {
