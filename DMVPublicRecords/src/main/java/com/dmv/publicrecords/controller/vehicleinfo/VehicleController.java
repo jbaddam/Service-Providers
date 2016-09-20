@@ -2,7 +2,7 @@ package com.dmv.publicrecords.controller.vehicleinfo;
 
 import java.util.List;
 
-import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -34,7 +34,7 @@ public class VehicleController {
 	 * and returns the List of Vehicles register to that address 
 	 */
 	@RequestMapping(value = "/getvehicleslist")
-	@GET	
+	@POST	
 	@Produces(MediaType.APPLICATION_JSON)
 	public ResponseEntity<List<Vehicle>> getVehiclesList(@RequestBody String address) {
 
