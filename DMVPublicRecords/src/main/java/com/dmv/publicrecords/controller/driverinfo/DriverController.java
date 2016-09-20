@@ -2,7 +2,7 @@ package com.dmv.publicrecords.controller.driverinfo;
 
 import java.util.List;
 
-import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -33,7 +33,7 @@ public class DriverController {
 	 * This method accepts String of license number as input
 	 * and returns the List of history of drivers 
 	 */
-	@GET
+	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@RequestMapping(value = "/getdriverhistory")
 	public ResponseEntity<List<Driver>> getDriverInfo(@RequestBody String licenseNumbers) {
