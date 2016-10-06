@@ -28,7 +28,7 @@ public class CreditScoreDAO {
 		EntityManager entitymanager = emfactory.createEntityManager();
 
 		@SuppressWarnings("unchecked")
-		List<Integer> creditScoreList = entitymanager.createNativeQuery("select creditScore from credit_score_info where ssn='" + ssn + "'").getResultList();
+		List<Integer> creditScoreList = entitymanager.createNativeQuery("select creditScore from creditscore_info where ssn='" + ssn + "'").getResultList();
 
 		if (creditScoreList.isEmpty()){
 			System.out.println("Invalid SSN");

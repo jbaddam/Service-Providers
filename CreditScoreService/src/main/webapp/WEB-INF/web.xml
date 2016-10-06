@@ -22,3 +22,6 @@
 		<url-pattern>/webServices/*</url-pattern>
 	</servlet-mapping>
 </web-app>
+
+	
+	
